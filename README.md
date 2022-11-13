@@ -231,3 +231,192 @@ deploy        : 2022-11-05, 5d
 ## 5. 前回の反省点
 
 ---
+
+#### 開発の効率化
+
+前回はアプリケーションを手探りで開発していった為、サーバー側の開発とクライアント側の開発を並行して進めて行きました。しかしこの方法は一方の開発に集中できないため開発効率がよくありませんでした。
+一方今回は全体の作り方をある程度把握しているので、最初にバックエンドの機能に集中して取り組み、Postman を使用してルーティングなどのチェック、デバッグ、テスト（手動テスト）を行いました。
+その後デザイン、フロントエンドの開発と順次進めていくスケジュールをとっています。
+
+#### セキュリティ
+
+前回はクライアント側の js ファイルに、バックエンドへの API の URL が丸見えの状態であった為これをどうにかしたいと考えておりました。
+フロントエンドは Next.js を使用することを検討していましたが、その Next.js の API Routes を使用すればバックエンドへの URL を隠蔽することができます。
+
+#### データベース設計
+
+データベースは前回と同様、今回も MongoDB を使用しております。前回はコレクションを細かく分けなかったためスケールしたとき、アカウントを削除したときの不具合の原因を見抜くことができませんでした。
+例えば、MongoDB のコレクションのスキーマは JSON オブジェクトのように階層（埋め込み）を作ることができるため、一つのドキュメントにどのようなデータも加えることができます。しかし MongoDB は一つのドキュメントに 16MB までの制限があるため、スケールしていくと必ずこの問題にぶつかることになります。
+また、一つのドキュメントに全てのデータを入れるとアカウントを削除した際のシステムの負荷非常に大きくなります。このような理由があるため分けて作るようにしました。
+
+#### N+1 問題
+
+前回のアプリでは一つのサーバーへのリクエストに対して何度も DB にアクセスするような処理を記述していました。加えて DB から受け取った内容をさらに整形しクライアント側に渡す処理を Node.js 上で記述していたため、とにかく無駄が多かったです。
+今回はそのような無駄をできる限り排除できるようにほぼ全ての DB へのクエリに Aggregation のパイプラインを使用し、一度のクエリで必要なデータを全て返すよう記述する努力をしました。Mongoose では$project のオペレーター を使用するため DB から渡ってきたデータを Node 上で整形することなくそのままクライアント側に返すことができます。
+
+## 6. 機能
+
+---
+
+- 実装内容
+- ページ遷移図
+- データベース設計
+
+### 主な実装内容
+
+- サインアップ、ログイン、ログアウト
+- ユーザーの認証、ユーザー情報の取得
+- プロフィールの編集
+- パスワードの変更
+- メールアドレスの変更
+- アカウントの削除
+- レシピの検索
+- レシピの投稿
+- レシピの編集、削除
+- レシピのお気に入り登録、削除
+- 関連レシピの取得
+- レシピへのコメント
+- ユーザーのフォロー
+- ページの作成、編集、削除
+- メール認証
+- Cloud Storage へ画像の保存
+- JWT による認証
+- パスワードの hash 化
+- デバッグ
+  - ランダムユーザーの作成
+  - レシピの自動作成
+  - 自動お気に入り登録
+- レスポンシブ、モバイル対応
+
+### ページ遷移図
+
+#### 全体像
+
+```mermaid
+flowchart TD
+
+idx(root) --> auth((authorization))
+auth --> |already login|home(root)
+auth --> |not login| index(index)
+index --> |not login|login(search, login or sign up )
+
+home --> profile(profile)
+home --> settings(settings)
+settings --> account(Account)
+settings --> readAbout(Read about recipes)
+settings --> create(Create)
+account --> editProfile(edit profile)
+account--> updatePassword(update password)
+account --> accountInfo(account info)
+readAbout --> favorites(favorites)
+readAbout --> followers(followers)
+readAbout --> page(read pages)
+create --> createRecipe(create new recipe)
+create --> createPage(create new page)
+
+page --> printPage(print page)
+
+```
+
+### ルーティング一部
+
+### データベース設計
+
+- 使用した DB
+- 概念図
+- スキーマサンプル
+
+#### 使用した DB
+
+**MongoDB / MongDB Atlas**
+
+前回同様データベースには MongoDB を使用しております。
+MongoDB は前回の経験を活かせるということ、Aggregation パイプラインを使用した処理を学びたいという理由から選びました。
+
+開発の初期段階ではローカルマシン上の MongoDB を使用し、開発後期ではホスティングサービスである MongoDB Atlas に切り替えて開発を行いました。
+
+#### 概念図
+
+```mermaid
+erDiagram
+User ||--|| Profile : contain
+User ||--|{ Recipe : use
+User ||--|| State : contain
+User ||--|| Follow : contain
+Tag ||--|| Recipe : contains
+Page }|--|| User : use
+Page ||--|{ Recipe : contain
+fav }|--|| Recipe : use
+Comment }|--|| Recipe: contain
+```
+
+#### スキーマ サンプル
+
+**Recipe**
+
+| field       | type   | Null     | key     | Default | Extra             |
+| ----------- | ------ | -------- | ------- | ------- | ----------------- |
+| \_id        | object | Not Null | primary | auto    |                   |
+| owner       | object | Not Null | FK      | auto    | owner             |
+| title       | String | Not Null |         |         |                   |
+| describe    | String |          |         |         |                   |
+| cookTime    | number |          |         |         |                   |
+| img         | String |          |         |         |                   |
+| ingredients | Array  |          |         |         | parent            |
+| - name      | String |          |         |         | ingred name       |
+| - amount    | String |          |         |         | ingred num        |
+| flavors     | Array  |          |         |         | parent            |
+| - name      | String |          |         |         | flavor name       |
+| - amount    | String |          |         |         | flavor num        |
+| step        | Array  |          |         |         | parent            |
+| -           | String |          |         |         | step description  |
+| timestamps  | Date   |          |         |         | create and update |
+
+```typescript
+import { model, Model, Schema, Types, Document } from 'mongoose'
+
+//  Recipeモデルの型を定義
+export interface RecipeFields extends Document {
+  _id: Types.ObjectId
+  owner: Types.ObjectId
+  title: string
+  describe: string
+  cookTime: number
+  img: string
+  ingredients: { name: string; amount: string }[]
+  flavors: { name: string; amount: string }[]
+  steps: string[]
+  timestamps: Date
+}
+
+const recipeSchema = new Schema<RecipeFields>(
+  {
+    owner: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: 'User',
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    describe: {
+      type: String,
+    },
+    cookTime: {
+      type: Number,
+    },
+    img: {
+      type: String,
+    },
+    ingredients: [{ name: { type: String }, amount: { type: String } }],
+    flavors: [{ name: { type: String }, amount: { type: String } }],
+    steps: [{ type: String }],
+  },
+  { timestamps: true }
+)
+
+const Recipe = model<RecipeFields>('Recipe', recipeSchema)
+
+export default Recipe
+```
