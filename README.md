@@ -6,6 +6,11 @@
 
 レシピ検索アプリーション Good Food を解説した記事となります。
 
+前回は俳句を投稿して交流できる SNS、Paiku575 というアプリを開発しておりますのでお時間がある際はそちらもご覧いただけると幸いです。
+
+**Paiku575**
+https://github.com/AkihitoNakano/Portfolio-Paiku575
+
 ---
 
 ### レシピを検索して投稿、交流できるウェブアプリケーション【GOOD FOOD]
@@ -16,16 +21,16 @@
 
 ### 目次
 
-1. アプリケーションの概要
-2. 企画
-3. スケジュール
-4. デザイン
-5. 前回の反省点
-6. アプリの機能
-7. 使用した技術スタック
-8. 努力した点、難しかった実装
-9. どのように学習したか
-10. 今後の学習
+1. [アプリケーションの概要](#overView)
+2. [企画](#planning)
+3. [スケジュール](#schedule)
+4. [デザイン](#design)
+5. [前回の反省点](#previousReflection)
+6. [アプリの機能](#appFunctions)
+7. [使用した技術スタック](#skillStacks)
+8. [努力した点、難しかった実装](#efforts)
+9. [どのように学習したか](#howLearning)
+10. [今後の学習](#next)
 
 ### 開発者について
 
@@ -36,6 +41,8 @@
 - 2022 年から本格的にプログラミングにのめり込み転職も検討中
 - 一歳になる子どもがいます
 - 以前台湾に 2 年ほど仕事で住んでいたことがあり中国語を話すことができます
+
+<a id="overView"></a>
 
 ## 1. アプリの概要
 
@@ -116,6 +123,8 @@ Good Food はレシピを投稿しお気に入りのレシピを保存、クリ�
 <img src="images/f09863fdf0d2316b14fd0b49b6884b7fd7c1a23da20df4bf4bb73f9af2db6d55.png" width="500px">
 </div>
 
+<a id="planning"></a>
+
 ## 2. 企画
 
 ---
@@ -164,6 +173,8 @@ Good Food はレシピを投稿しお気に入りのレシピを保存、クリ�
 
 最初の設計段階でフォローしているユーザー同士、メッセージを送ることができる機能も考えておりました。そのような機能は必要ないと判断されたため、ボツにしました。
 
+<a id="schedule"></a>
+
 ## 3. スケジュール
 
 ---
@@ -198,6 +209,8 @@ deploy        : 2022-11-05, 5d
 実際バックエンドの開発後すぐにフロントエンドの開発に取り掛かれるよう React/Next.js の勉強には 9 月頭からバックエンドの開発と同時に行っておりました。
 バックエンドも TypeScript を導入していますが TypeScript の勉強自体は 7 月の時点から始めていたためスムーズに進められたと考えております。
 
+<a id="design"></a>
+
 ## 4. デザイン
 
 ---
@@ -209,8 +222,7 @@ deploy        : 2022-11-05, 5d
 ### サイトデザイン全体図（構想図）
 
 - 上部の縦長サイズはモバイル用レイアウト
-
-![picture 5](images/15573c538c380413f1214f5750a3fffccbe1d3f2490cd3c5fbb75ef8d6ce9ca9.png)
+  ![picture 4](images/76c9376961ec78106c9e713e9bf9446c3530a71104770119aee5b68f7f88a01d.png)
 
 #### レシピカードの構想案
 
@@ -220,9 +232,13 @@ deploy        : 2022-11-05, 5d
 
 ![picture 7](images/325c91dbd6c4b4fbedc8f93f5201a3248784ec969ef0c478a1f8de518ca14f12.png)
 
+#### 設定 - ページ編集案
+
+![picture 3](images/441695d32139835936ef511fe3b435e3ac754f95698fd17ed040f65ad006fddd.png)
+
 #### モバイルサイトの構想案、全体図
 
-![picture 8](images/7cd28bbcae59a0fbe6c5dadbd1b8aca7403c200eeab4ecb69f53c5168bd02732.png)
+![picture 5](images/133b9d9ae61ae241b919d46ef5006d3e2e9ca4ede4abea51972c5a58a3e935bf.jpg)
 
 #### 印刷時のレイアウト構想案
 
@@ -233,6 +249,8 @@ deploy        : 2022-11-05, 5d
 #### 全体のバランス調整チェック、配色、ボタンデザイン
 
 ![picture 10](images/0f164f093582317571f1c7e9d48c55f2b6a3a784771c7afe6dc147886ef5360e.png)
+
+<a id="previousReflection"></a>
 
 ## 5. 前回の反省点
 
@@ -261,6 +279,8 @@ deploy        : 2022-11-05, 5d
 
 前回のアプリでは一つのサーバーへのリクエストに対して何度も DB にアクセスするような処理を記述していました。加えて DB から受け取った内容をさらに整形しクライアント側に渡す処理を Node.js 上で記述しており、とにかく無駄が多かったです。
 今回はそのような無駄をできる限り排除できるようにほぼ全ての DB へのクエリに Aggregation のパイプラインを使用し、一度のクエリで必要なデータを全て返すよう記述する努力をしました。Mongoose では$project のオペレーター を使用するため DB から渡ってきたデータを Node 上で整形することなくそのままクライアント側に返すことができます。
+
+<a id="appFunctions"></a>
 
 ## 6. 機能
 
@@ -331,7 +351,7 @@ page --> printPage(print page)
 ### データベース設計
 
 - 使用した DB
-- 概念図
+- ER 図
 - スキーマサンプル
 
 #### 使用した DB
@@ -343,42 +363,123 @@ MongoDB は前回の経験を活かせるということ、Aggregation パイプ
 
 開発の初期段階ではローカルマシン上の MongoDB を使用し、開発後期ではホスティングサービスである MongoDB Atlas に切り替えて開発を行いました。
 
-#### 概念図
+### ER 図
 
 ```mermaid
 erDiagram
-User ||--|| Profile : contain
-User ||--|{ Recipe : use
-User ||--|| State : contain
-User ||--|| Follow : contain
-Tag ||--|| Recipe : contains
-Page }|--|| User : use
-Page ||--|{ Recipe : contain
-fav }|--|| Recipe : use
-Comment }|--|| Recipe: contain
+
+User ||--||  Profile : is
+User }o--o{ Follow : follow
+User ||--o{ Recipe : create
+Recipe }o--o{ Comment : contain
+Fav }o--o{ Recipe : contain
+Tag }o--|| Recipe : contain
+Page ||--|{ Recipe : use
+State ||--o{ User : manage
+
+User {
+  id Object PK
+  email string
+  password string
+  Tokens string[]
+  Tokens-token string
+  createdAt date
+  updatedAt date
+
+}
+
+Profile {
+  id Object PK
+  accountName string
+  displayName string
+  avatar string
+  introduction string
+  links Object
+  links-twitter string
+  links-instagram string
+  links-meta string
+  links-another string
+}
+
+Follow {
+  id Object PK
+  follower Object FK
+  followed Object FK
+}
+
+Recipe {
+  id Object PK
+  owner Object FK
+  title string
+  describe string
+  cookTime number
+  img string
+  ingredients object[]
+  ingredients-name string
+  ingredients-amount string
+  flavors object[]
+  flavors-name string
+  flavors-amount string
+  step string[]
+  timestamps date
+
+}
+
+Comment {
+  id Object PK
+  creator Object FK
+  recipeId Object FK
+  responseId Object FK
+  comment string
+  createdAt date
+}
+
+Fav {
+  id Object PK
+  recipeId Object FK
+  owner Object FK
+  timestamps date
+}
+
+Tag {
+  id Object PK
+  tagName string[]
+  createdAt date
+}
+
+Page {
+  id Object
+  pageName string
+  divisionNum Number
+  creator Object FK
+  recipeId Object[]
+  timestamps date
+}
+
+State {
+  id Object PK
+  email string
+  state string
+  timestamps date
+}
+
 ```
 
-#### スキーマ サンプル
+#### 各モデルの内容
 
-**Recipe**
+| モデル名 | 内容                                     |
+| -------- | ---------------------------------------- |
+| User     | ベースとなるユーザーの情報               |
+| Profile  | ユーザーの詳細情報                       |
+| Follow   | フォローしている、されているユーザー情報 |
+| Recipe   | レシピの情報                             |
+| Comment  | レシピに対するコメント                   |
+| Fav      | レシピに対するお気に入り                 |
+| Tag      | レシピのタグ情報                         |
+| Page     | ページ情報                               |
+| State    | ユーザーの特別な状態を管理               |
 
-| field       | type   | Null     | key     | Default | Extra             |
-| ----------- | ------ | -------- | ------- | ------- | ----------------- |
-| \_id        | object | Not Null | primary | auto    |                   |
-| owner       | object | Not Null | FK      | auto    | owner             |
-| title       | String | Not Null |         |         |                   |
-| describe    | String |          |         |         |                   |
-| cookTime    | number |          |         |         |                   |
-| img         | String |          |         |         |                   |
-| ingredients | Array  |          |         |         | parent            |
-| - name      | String |          |         |         | ingred name       |
-| - amount    | String |          |         |         | ingred num        |
-| flavors     | Array  |          |         |         | parent            |
-| - name      | String |          |         |         | flavor name       |
-| - amount    | String |          |         |         | flavor num        |
-| step        | Array  |          |         |         | parent            |
-| -           | String |          |         |         | step description  |
-| timestamps  | Date   |          |         |         | create and update |
+**Recipe のスキーマ**
 
 ```typescript
 import { model, Model, Schema, Types, Document } from 'mongoose'
@@ -429,6 +530,8 @@ const Recipe = model<RecipeFields>('Recipe', recipeSchema)
 export default Recipe
 ```
 
+<a id="skillStacks"></a>
+
 ## 7. 使用した技術スタック
 
 ---
@@ -478,13 +581,13 @@ Next.js を採用した理由は Next の pages を利用したルーティン�
 
 ### インフラ
 
-| 名前                | url                                    |
-| ------------------- | -------------------------------------- |
-| GCP / Cloud Storage | https://cloud.google.com/storage?hl=ja |
-| Docker              | https://hub.docker.com/                |
-| GCP / Cloud Run     | https://cloud.google.com/run?hl=ja     |
-| Vercel              | https://vercel.com                     |
-| Render              | https://render.com/                    |
+| 名前                | url                                    | 使用用途                               |
+| ------------------- | -------------------------------------- | -------------------------------------- |
+| GCP / Cloud Storage | https://cloud.google.com/storage?hl=ja | 画像ファイルの保管                     |
+| Docker              | https://hub.docker.com/                | デプロイ時のコンテナイメージの作成     |
+| Vercel              | https://vercel.com                     | フロントエンドのソースコードをデプロイ |
+| GCP / Cloud Run     | https://cloud.google.com/run?hl=ja     | バックエンドのソースコードをデプロイ   |
+| Render              | https://render.com/                    | バックエンドのソースコードをデプロイ   |
 
 Next.js 製のフロントエンドソースコードは Vercel にデプロイし、
 バックエンドは当初は Render を使用していましたが応答速度が無料枠だと非常に遅く、日本のリージョンもないため Cloud Run に途中で変更しました。
@@ -498,7 +601,7 @@ vercel への継続的デプロイもプルリクエストで main ブランチ�
 
 ### システム構成図
 
-![picture 1](images/20996552eeaa853fd12bfc1516d6f32877c295d314ae6fbae6c5741bdd0cef6b.png)
+![picture 6](images/eed5803288dd0b00f1892a951493d07cc93b807ed754e9e92ecd79b3761507d0.png)
 
 ### 使用ツール
 
@@ -516,7 +619,9 @@ vercel への継続的デプロイもプルリクエストで main ブランチ�
 
 主なアイコンはフリー素材を利用させていただいておりますが、web のデザインやロゴ、一部のアイコン制作には Adobe の XD とイラストレータを使用しました。
 
-## 努力した点、難しかった実装
+<a id="efforts"></a>
+
+## 8.努力した点、難しかった実装
 
 - TypeScript の導入
 - Next.js / React の導入
@@ -634,6 +739,8 @@ MongoDB の Aggregate を使ったクエリは SQL と異なり上から順に�
 
 mongoDB はおもしろいですが今後は Prisma や SQL を使うことも検討しています。
 
+<a id="howLearning"></a>
+
 ## 9. どのように学習したか
 
 ### TypeScript
@@ -684,4 +791,33 @@ https://www.udemy.com/course/3sqlmysql/
 <img src="images/4d247f786fe1f8828814667ca3d09502b887087b053d9fd2e06cb40cf6bc5278.png" width="600px">
 </div>
 
+<a id="next"></a>
+
 ## 10. 今後の学習
+
+現在のスキルである程度のアプリケーションを作成できることがわかった為、今後はそれらのスキルを定着、改善していくことを目標とします。
+
+しかし、移り変わりの早い WEB 系周辺の技術に対応するため新しい技術もピックアップしていきたいと考えております。
+
+### 定着させたい技術
+
+優先度順
+
+1. TypeScript
+2. Node.js
+3. React
+4. MongoDB / SQL
+
+TypeScript はバックエンド、フロントエンドどちらでも使用でき、今後業界でも浸透していく言語だと考えております。
+TypeScript ではクラスやジェネリクスについてはまだ不安な部分があり、今後も学習を続けていきたいです。
+
+### 学習中の新しい分野
+
+- GO
+
+バックエンドの分野として Go は年々伸びている言語だと考えます。ネットで検索すると Go の記事や動画も見かけるようになりました。
+まだ初歩の段階ではありますが今後はバックエンドを Go でも書いていきたいと考えております。
+
+以上となります。
+
+最後までお読み頂きありがとうございました！
