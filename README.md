@@ -2,8 +2,6 @@
 
 ## はじめに
 
----
-
 レシピ検索アプリーション Good Food を解説した記事となります。
 
 前回は俳句を投稿して交流できる SNS、Paiku575 というアプリを開発しておりますのでお時間がある際はそちらもご覧いただけると幸いです。
@@ -17,7 +15,7 @@ https://github.com/AkihitoNakano/Portfolio-Paiku575
 
 ![picture 1](images/fd3f54a81779027a7ab4e0e0d32b27be6598fac69bdd8eecc54ef2b3972cae0f.png)
 
-主な使用技術はフロントエンドに Next.js/TypeScript、バックエンドに Node.js/TypeScript、データベースに MongoDB、ストレージに GCP の Cloud Storage、コンテナ作成に Docker、デプロイサービスはフロントエンドを Vercel、バックエンドは GCP の Cloud Run または Render を使用。
+主な使用技術はフロントエンドに **Next.js/TypeScript**、バックエンドに **Node.js/TypeScript**、データベースに **MongoDB**、ストレージに GCP の **Cloud Storage**、コンテナ作成に **Docker**、デプロイサービスはフロントエンドを **Vercel**、バックエンドは GCP の **Cloud Run** または **Render** を使用。
 
 ### 目次
 
@@ -36,7 +34,7 @@ https://github.com/AkihitoNakano/Portfolio-Paiku575
 
 ---
 
-- 12 年間コンピューターグラフィックスを使用した業界で映画や、TV、CM、ゲーム映像などの仕事に従事していました
+- 12 年間コンピューターグラフィックスの業界で映画や、TV、CM、ゲーム映像などの仕事に従事していました
 - 趣味で 4，5 年程度 UNREAL ENGINE を使用したゲーム開発をしており、iOS に公開した経験もあります
 - 2022 年から本格的にプログラミングにのめり込み転職も検討中
 - 一歳になる子どもがいます
@@ -106,7 +104,7 @@ Good Food はレシピを投稿しお気に入りのレシピを保存、クリ�
 #### ページ機能とは？
 
 ページとは複数のレシピをグループ化する機能です。
-ページという名前から一枚のページ（A4 用紙を想定）にレシピを詰め込んで印刷、または PDF にして使用します。
+ページという名前から一枚のページ（A4 用紙を想定）にレシピを詰め込んで印刷、または PDF に出力します。
 分割数は現在 1, 4, 6 の 3 種類のみとなっています。
 
 ### レシピを印刷する
@@ -221,8 +219,7 @@ deploy        : 2022-11-05, 5d
 
 ### サイトデザイン全体図（構想図）
 
-- 上部の縦長サイズはモバイル用レイアウト
-  ![picture 4](images/76c9376961ec78106c9e713e9bf9446c3530a71104770119aee5b68f7f88a01d.png)
+![picture 4](images/76c9376961ec78106c9e713e9bf9446c3530a71104770119aee5b68f7f88a01d.png)
 
 #### レシピカードの構想案
 
@@ -273,7 +270,7 @@ deploy        : 2022-11-05, 5d
 
 例えば、MongoDB のコレクションのスキーマは JSON オブジェクトのように階層（埋め込み）を作ることができるので、一つのドキュメントにどのようなデータも加えることができます。しかし MongoDB は一つのドキュメントに 16MB までの制限があるため、スケールしていくと必ずこの問題にぶつかることになります。
 
-また、一つのドキュメントに全てのデータを入れるとアカウントを削除した際のシステムの負荷非常に大きくなります。このような理由があるため分けて作るようにしました。
+また、一つのドキュメントに全てのデータを入れるとアカウントを削除した際のシステムの負荷非が常に大きくなります。このような理由があるため分けて作るようにしました。
 
 #### N+1 問題
 
@@ -381,7 +378,7 @@ User {
   id Object PK
   email string
   password string
-  Tokens string[]
+  Tokens Array-string
   Tokens-token string
   createdAt date
   updatedAt date
@@ -414,13 +411,13 @@ Recipe {
   describe string
   cookTime number
   img string
-  ingredients object[]
+  ingredients Array-object
   ingredients-name string
   ingredients-amount string
-  flavors object[]
+  flavors Array-Object
   flavors-name string
   flavors-amount string
-  step string[]
+  step Array-string
   timestamps date
 
 }
@@ -443,7 +440,7 @@ Fav {
 
 Tag {
   id Object PK
-  tagName string[]
+  tagName Array-string
   createdAt date
 }
 
@@ -452,7 +449,7 @@ Page {
   pageName string
   divisionNum Number
   creator Object FK
-  recipeId Object[]
+  recipeId Array-Object
   timestamps date
 }
 
