@@ -8,7 +8,7 @@
 
 **Paiku575**　 👉 https://github.com/AkihitoNakano/Portfolio-Paiku575
 
----
+<br>
 
 ## レシピを検索して投稿、交流できるウェブアプリケーション【GOOD FOOD]
 
