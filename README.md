@@ -1,4 +1,4 @@
-# レシピ検索 WEB アプリケーション　【Next.js / React / Node.js / TypeScript / MongoDB / Docker / GCP / Vercel / Render】
+# レシピ投稿 WEB アプリケーション　【Next.js / React / Node.js / TypeScript / MongoDB / Docker / GCP / Vercel / Render】
 
 ## はじめに
 
