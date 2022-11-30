@@ -1,0 +1,126 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  padding: 0 100px;
+}
+
+.container p {
+  margin: 0;
+}
+
+.selectFollows {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 100px;
+}
+
+/* selectKeyはUserList.cssで作業 _app.tsxに配置している */
+/* margin-rightだけなぜか効かないのでこちらで記述 */
+.selectFollows p {
+  margin-right: 30px;
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 30px 30px;
+  width: 100%;
+  margin-bottom: 100px;
+}
+
+.boxWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.boxWrap img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.boxWrap p {
+  margin: 1px 0;
+}
+
+.textWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.displayName {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--font-main);
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.displayName:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.followerWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.followerLabel {
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.followNum {
+  font-size: 0.8rem;
+  color: var(--font-sub);
+}
+
+/* モバイル */
+@media screen and (max-width: 450px) {
+  .selectFollows {
+    margin-bottom: 30px;
+  }
+  .gridContainer {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 30px 10px;
+    width: 100%;
+  }
+  .boxWrap {
+    width: 70px;
+  }
+  .boxWrap img {
+    width: 50px;
+    height: 50px;
+  }
+  .displayName {
+    font-size: 0.5rem;
+  }
+  .mbName {
+    font-size: 0.5rem;
+  }
+  .followerLabel {
+    font-size: 0.5rem;
+    font-weight: bold;
+    padding-right: 5px;
+  }
+
+  .followNum {
+    font-size: 0.5rem;
+    color: var(--font-sub);
+  }
+}

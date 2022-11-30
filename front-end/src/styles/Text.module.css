@@ -1,0 +1,162 @@
+.title100 {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: var(--font-main);
+}
+
+.title90 {
+  font-weight: bold;
+  font-size: 2.2rem;
+  color: var(--font-main);
+}
+
+.title80 {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--font-main);
+}
+.title70 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--font-main);
+}
+.title60 {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--font-main);
+}
+
+.title50 {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--font-main);
+}
+.title40 {
+  font-weight: bold;
+  font-size: 0.8rem;
+  color: var(--font-main);
+}
+.title30 {
+  font-weight: bold;
+  font-size: 0.6rem;
+  color: var(--font-main);
+}
+.title20 {
+  font-weight: bold;
+  font-size: 0.4rem;
+  color: var(--font-main);
+}
+
+/* grayColor title */
+.title100g {
+  font-weight: bold;
+  font-size: 2.5rem;
+  color: var(--font-sub);
+}
+
+.title90g {
+  font-weight: bold;
+  font-size: 2.2rem;
+  color: var(--font-sub);
+}
+
+.title80g {
+  font-weight: bold;
+  font-size: 2rem;
+  color: var(--font-sub);
+}
+.title70g {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--font-sub);
+}
+.title60g {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: var(--font-sub);
+}
+
+.title50g {
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--font-sub);
+}
+
+/* text */
+
+.text100 {
+  font-size: 2rem;
+  color: var(--font-main);
+}
+.text90 {
+  font-size: 1.8rem;
+  color: var(--font-main);
+}
+.text80 {
+  font-size: 1.6rem;
+  color: var(--font-main);
+}
+.text70 {
+  font-size: 1.4rem;
+  color: var(--font-main);
+}
+.text60 {
+  font-size: 1.2rem;
+  color: var(--font-main);
+}
+.text50 {
+  font-size: 1rem;
+  color: var(--font-main);
+}
+.text40 {
+  font-size: 0.8rem;
+  color: var(--font-main);
+}
+.text30 {
+  font-size: 0.7rem;
+  color: var(--font-main);
+}
+.text20 {
+  font-size: 0.5rem;
+  color: var(--font-main);
+}
+.text10 {
+  font-size: 0.3rem;
+  color: var(--font-main);
+}
+
+/* サブの情報テキスト */
+.sub30 {
+  font-size: 0.7rem;
+  color: var(--font-light);
+}
+.sub40 {
+  font-size: 0.8rem;
+  color: var(--font-light);
+}
+.sub50 {
+  font-size: 1rem;
+  color: var(--font-light);
+}
+
+/* color */
+
+/* red */
+.red {
+  color: var(--key-red);
+}
+.secRed {
+  color: var(--secondary-red);
+}
+
+.darkRed {
+  color: var(--dark-red);
+}
+
+.fontLight {
+  color: var(--font-light);
+}
+
+.gray {
+  color: gray;
+}

@@ -1,0 +1,10 @@
+.contentBox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}

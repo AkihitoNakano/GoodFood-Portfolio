@@ -1,0 +1,505 @@
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--font-main);
+  margin-top: 50px;
+}
+
+.contentBox {
+  width: 600px;
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.headWrap {
+  background: rgb(248, 248, 248);
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.recipeImg {
+  object-fit: cover;
+  height: 400px;
+}
+
+.headDescribeWrap {
+  width: 600px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.titleTopWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleTopWrap h1 {
+  margin-bottom: 5px;
+}
+
+.favAndDateWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.favAndDateWrap p {
+  margin: 0;
+}
+
+.dateWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.dateAndTextWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.dateAndTextWrap {
+  font-size: 0.8rem;
+}
+
+.dateAndTextWrap p {
+  padding-right: 10px;
+}
+
+.favWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.heartIcon {
+  background: var(--key-red);
+  width: 12px;
+  height: 12px;
+  mask: url('/icons/general/icon_heart-fill.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/icon_heart-fill.svg') no-repeat center center/contain;
+}
+
+.favWrap p {
+  margin-left: 5px;
+}
+
+.describe {
+  margin: 20px 0 !important;
+}
+
+.ownerWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  align-items: flex-end;
+}
+
+.ownerWrap p {
+  font-size: 0.8rem;
+}
+
+.ownerWrap span {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.ownerWrap span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.ownerWrap img {
+  width: 40px;
+  border-radius: 50%;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+  margin-left: 10px;
+}
+
+/* button カテゴリ */
+.buttonsWrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.contentBox button p {
+  margin: 5px !important;
+}
+
+.buttonsWrap button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.buttonsWrap button p {
+  margin-left: 10px;
+}
+
+.buttonsWrap .heartIcon {
+  width: 15px;
+  height: 15px;
+}
+
+.heartIcon2 {
+  background: var(--font-light);
+  width: 20px;
+  height: 20px;
+  mask: url('/icons/general/heart.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/heart.svg') no-repeat center center/contain;
+}
+
+.printIcon {
+  background: var(--font-light);
+  width: 20px;
+  height: 20px;
+  mask: url('/icons/general/printer.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/printer.svg') no-repeat center center/contain;
+}
+
+.shareIcon {
+  background: var(--font-light);
+  width: 20px;
+  height: 20px;
+  mask: url('/icons/general/share.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/share.svg') no-repeat center center/contain;
+}
+
+.editIcon {
+  background: var(--font-light);
+  width: 20px;
+  height: 20px;
+  mask: url('/icons/general/edit.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/edit.svg') no-repeat center center/contain;
+}
+.trashIcon {
+  background: var(--key-red);
+  width: 20px;
+  height: 20px;
+  mask: url('/icons/general/trash.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/trash.svg') no-repeat center center/contain;
+}
+
+.cookTimeWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.timeIcon {
+  background: var(--font-main);
+  width: 25px;
+  height: 25px;
+  mask: url('/icons/general/alarm.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/alarm.svg') no-repeat center center/contain;
+}
+
+.cookTitleWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookTimeWrap p {
+  margin-left: 5px;
+}
+
+.time {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--font-sub);
+}
+/* 材料 */
+
+.ingredientContainer th,
+.flavorContainer th {
+  padding: 10px 0;
+}
+
+.ingredientContainer td,
+.flavorContainer td {
+  padding: 5px 0;
+}
+
+.ingredientContainer table,
+.flavorContainer table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.ingredientContainer thead,
+.flavorContainer thead {
+  text-align: left;
+  border-bottom: 1px solid var(--font-light);
+}
+
+.trRight {
+  text-align: right;
+}
+
+.tableTh::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.ingredientIcon::before {
+  background: center/ contain no-repeat url('/icons/general/baguette.svg');
+}
+.flavorIcon::before {
+  background: center/ contain no-repeat url('/icons/general/salt.svg');
+}
+
+.checkBox::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-size: container;
+  background-image: url('/icons/general/chevrons-right.svg');
+  vertical-align: middle;
+  margin-right: 5px;
+  transform: scale(0.6);
+}
+
+/* step */
+.stepWrap {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.stepTitle::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: center/ contain no-repeat url('/icons/general/stairs.svg');
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.stepBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.stepNum::before {
+  content: '';
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background-image: url('/icons/general/check.svg');
+  /* mask: url('/icons/general/circle-check.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/circle-check.svg') no-repeat center center/contain;
+  background-color: var(--sub-green); */
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.stepBox p {
+  margin-bottom: 10px;
+}
+
+.stepBox .stepContent {
+  margin-left: 35px;
+}
+
+/* comment リスト */
+
+.commentContainer .commentTitle,
+.tagContainer .commentTitle,
+.leaveCmtContainer .commentTitle {
+  margin-bottom: 30px;
+}
+
+.commentWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.commentBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+
+.cmtUserWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
+  border-bottom: 1px solid var(--font-light);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.cmtAccWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.cmtUserWrap img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.cmtAccWrap p:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.cmtCreatedAt {
+  text-align: right;
+  color: gray;
+  font-size: 0.9rem;
+}
+
+.commentBox .replayBtn {
+  color: var(--font-sub);
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+.commentBox .replayBtn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* 返信用のinput */
+.replyInputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.replyInputContainer input {
+  font-size: 1rem;
+  border: none;
+  border-bottom: 2px solid var(--font-main);
+  padding: 10px 5px;
+  margin-bottom: 10px;
+}
+.replyInputContainer input:focus {
+  outline: none;
+  background-color: rgb(243, 243, 243);
+}
+
+.replyBtnBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.replyBtnBox button {
+  margin-left: 10px;
+}
+.replyCancelBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.replyContainer {
+  width: 90%;
+  margin-left: auto;
+  margin-top: 10px;
+}
+
+.replyWrap {
+  margin-bottom: 20px;
+}
+
+/* tag */
+.tagName {
+  display: inline-block;
+  background-color: var(--font-sub);
+  color: var(--base-white);
+  padding: 5px 20px;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.tagName:hover {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* コメントを残す */
+.leaveCmtContainer {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.leaveCmtContainer form {
+  display: flex;
+  flex-direction: column;
+}
+
+.levCmtBtn {
+  margin-left: auto;
+  margin-top: 20px;
+}
+
+.countLveCmt {
+  position: absolute;
+  top: 40px;
+  right: 0;
+}
+
+.leaveCmtContainer textarea {
+  font-size: 1rem;
+  background-color: var(--base-white);
+  border: none;
+  border-bottom: 1px solid var(--font-sub);
+}
+
+.commentWrap .readMoreComment {
+  text-align: center;
+  color: var(--font-light);
+  font-weight: bold;
+}
+
+.commentWrap .readMoreComment:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+/* 関連レシピ */
+/* モバイル */
+@media screen and (max-width: 450px) {
+  .contentBox {
+    width: 100%;
+  }
+  .headDescribeWrap {
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px;
+  }
+  .contentBox {
+    width: 100%;
+    padding: 0 20px;
+  }
+}

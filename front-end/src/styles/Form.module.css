@@ -1,0 +1,101 @@
+.formWrap {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.formWrap label {
+  font-weight: bold;
+  font-size: 1.21rem;
+  color: var(--font-sub);
+  margin-bottom: 10px;
+}
+
+.labelWrap {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+}
+
+.formWrap input {
+  margin-bottom: 60px;
+}
+.formInput {
+  border: none;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--font-sub);
+  padding: 10px;
+}
+
+.formInput:focus,
+.textArea:focus {
+  outline: none;
+  outline: 2px solid var(--sub-green);
+  border-radius: 5px;
+  border-bottom: 1px solid var(--sub-green);
+  background-color: rgb(250, 250, 250);
+}
+
+.textArea {
+  border: none;
+  color: var(--font-sub);
+  font-size: 1rem;
+  border-bottom: 1px solid var(--font-main);
+  padding: 10px;
+  margin-bottom: 60px;
+}
+
+.selectInput {
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 2px solid var(--font-light);
+  width: 20%;
+  padding: 10px;
+}
+
+.selectInput:focus {
+  outline: 1px solid var(--sub-green);
+}
+
+/* search input */
+.searchForm {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 500px;
+}
+
+.search {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.search:focus {
+  outline: 2px solid var(--sub-green);
+}
+.clearSearch {
+  position: absolute;
+  right: 10%;
+  border-radius: 50%;
+}
+
+.submitSearch {
+  position: absolute;
+  right: 3%;
+}
+
+.clearSearch:hover,
+.submitSearch:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.clearSearch:active,
+.submitSearch:active {
+  transform: scale(0.98);
+}

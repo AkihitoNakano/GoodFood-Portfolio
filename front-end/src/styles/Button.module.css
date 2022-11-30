@@ -1,0 +1,217 @@
+/* ボタン全般 */
+.btn {
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  transition: all 0.2s linear;
+}
+.btn:disabled {
+  cursor: not-allowed;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* 赤L size button */
+.btnLRed {
+  background-color: #fff;
+  color: var(--key-red);
+  font-size: 1.1rem;
+  border-radius: 30px;
+  border: 3px solid var(--key-red);
+  padding: 10px 0;
+}
+
+.btnLRed:hover,
+.btnMRed:hover,
+.btnMRedFree:hover {
+  background-color: var(--key-red);
+  color: #fff;
+}
+
+.btnMRedInv:hover,
+.btnLRedInv:hover,
+.btnSRedInv:hover {
+  background-color: #fff;
+  color: var(--key-red);
+}
+
+/* 黒 L size button */
+.btnLBlack {
+  background-color: #fff;
+  color: var(--font-main);
+  font-size: 1.1rem;
+  border-radius: 30px;
+  border: 3px solid var(--font-main);
+  padding: 10px 0;
+}
+
+.btnLGreen:hover,
+.btnMGreen:hover,
+.btnSGreen:hover {
+  background-color: var(--sub-green);
+  color: #fff;
+}
+
+/* 緑 */
+.btnLBlack:hover,
+.btnMBlack:hover,
+.btnSBlack:hover,
+.btnMBlackFree:hover {
+  background-color: var(--font-main);
+  color: #fff;
+}
+
+/* Mサイズ赤 */
+.btnMRed {
+  background-color: #fff;
+  color: var(--key-red);
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 3px solid var(--key-red);
+  width: 100px;
+  padding: 5px 0;
+}
+.btnMRedFree {
+  background-color: #fff;
+  color: var(--key-red);
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 3px solid var(--key-red);
+  padding: 5px 20px;
+}
+
+/* Mサイズ赤反転 */
+.btnMRedInv {
+  background-color: var(--key-red);
+  color: #fff;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 3px solid var(--key-red);
+  padding: 5px 0;
+}
+
+.btnMBlack {
+  background-color: #fff;
+  color: var(--font-sub);
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 3px solid var(--font-sub);
+  width: 100px;
+  padding: 5px 0;
+}
+.btnMBlackFree {
+  background-color: #fff;
+  color: var(--font-su);
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 3px solid var(--font-sub);
+  padding: 5px 20px;
+}
+
+/* 追加用のプラスボタン */
+.btnAddCircle {
+  background-color: var(--font-sub);
+  width: 40px;
+  height: 40px;
+  mask: url('/icons/general/circle-plus.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/circle-plus.svg') no-repeat center center/contain;
+  transition: all 0.1s linear;
+}
+
+/* 追加用のminusボタン */
+.btnMinusCircle {
+  background-color: var(--secondary-red);
+  width: 40px;
+  height: 40px;
+  mask: url('/icons/general/circle-minus.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/circle-minus.svg') no-repeat center center/contain;
+  transition: all 0.1s linear;
+}
+
+.btnAddCircle:hover,
+.btnMinusCircle:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+/* File input  */
+.btnFileInput {
+  font-weight: bold;
+  font-size: 0.8rem !important;
+  text-align: center;
+  width: 100px;
+  border: 3px solid var(--font-main);
+  border-radius: 20px;
+  padding: 5px;
+  margin-bottom: 60px !important;
+  transition: all 0.1s linear;
+}
+
+.btnFileInput:hover {
+  cursor: pointer;
+  background-color: var(--font-main);
+  color: #fff;
+}
+
+/* 白のMサイズ */
+.btnMWhite {
+  background-color: #fff;
+  color: var(--font-light);
+  font-size: 1rem;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+  /* width: 100px; */
+  padding: 5px 20px;
+}
+
+.btnMWhite:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+/* small size */
+.btnSBlack {
+  background-color: #fff;
+  color: var(--font-sub);
+  font-size: 0.8rem;
+  border-radius: 30px;
+  border: 3px solid var(--font-sub);
+  width: 100px;
+  padding: 3px 0;
+}
+
+.btnSGreen {
+  background-color: #fff;
+  color: var(--sub-green);
+  font-size: 0.8rem;
+  border-radius: 30px;
+  border: 3px solid var(--sub-green);
+  width: 100px;
+  padding: 3px 0;
+}
+.btnMGreen {
+  background-color: #fff;
+  color: var(--sub-green);
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 3px solid var(--sub-green);
+  padding: 5px 20px;
+}
+
+.btnSGray {
+  background-color: rgb(238, 238, 238);
+  color: var(--font-sub);
+  font-size: 0.8rem;
+  border-radius: 30px;
+  border: none;
+  width: 100px;
+  padding: 3px 0;
+}
+
+.btnSGray:hover {
+  background-color: rgb(231, 231, 231);
+}

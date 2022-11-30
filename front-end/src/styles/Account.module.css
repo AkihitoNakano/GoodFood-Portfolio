@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.formWrap {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 60px;
+}
+
+.formWrap label {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.checkBtn {
+  margin-top: 50px;
+}
+
+.cancelBtn {
+  margin-top: 10px;
+}
+
+/* モバイル */
+@media screen and (max-width: 450px) {
+  .formWrap {
+    width: 100%;
+  }
+}

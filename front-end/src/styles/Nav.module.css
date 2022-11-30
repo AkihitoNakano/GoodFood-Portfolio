@@ -1,0 +1,95 @@
+.container {
+  position: fixed;
+  background-color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 50px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  padding: 5px 20px;
+  z-index: 10;
+}
+
+.logoWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.logoWrap:hover {
+  cursor: pointer;
+}
+
+.tomatoLogo {
+  width: 30px;
+  height: 30px;
+}
+
+.goodFood {
+  width: 150px;
+}
+
+.border {
+  position: relative;
+  background-color: rgb(157, 157, 157);
+  width: 2px;
+  height: 25px;
+  margin: 0 50px;
+}
+
+.userAccount {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.userAccount p {
+  color: var(--font-light);
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.tempAvatar {
+  border: solid 2px var(--button-black);
+}
+
+.accountLink:hover {
+  color: var(--sub-green);
+}
+
+.dropDown {
+  margin: 0 10px;
+}
+
+.dropDown:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/*  レスポンシブ */
+@media screen and (max-width: 650px) {
+  .pop,
+  .border {
+    display: none;
+  }
+}
+
+/* モバイル */
+@media screen and (max-width: 450px) {
+  .userAccount {
+    margin-right: 0px;
+  }
+  .pop,
+  .border {
+    display: none;
+  }
+}

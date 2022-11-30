@@ -1,0 +1,253 @@
+.leftColumn {
+  font-display: flex;
+  flex-direction: column;
+}
+
+.boxWrap {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.editAndChange,
+.myContents {
+  background-color: var(--base-white);
+}
+
+.boxWithShadow {
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+.myProfWrap {
+  background-color: #fff;
+  width: 350px;
+  padding: 35px;
+}
+
+.myProfWrap p {
+  padding: 0;
+  margin: 0;
+}
+
+.profWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.profTopWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.profTopWrap img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+  margin-right: 10px;
+}
+
+.nameWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.linksWrap {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.linkIcon {
+  margin-right: 15px;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(148, 148, 148);
+}
+
+.icon_twitter {
+  -webkit-mask: url('/icons/general/brand-twitter.svg') no-repeat center;
+  mask: url('/icons/general/brand-twitter.svg') no-repeat center;
+}
+.icon_instagram {
+  -webkit-mask: url('/icons/general/brand-instagram.svg') no-repeat center;
+  mask: url('/icons/general/brand-instagram.svg') no-repeat center;
+}
+.icon_meta {
+  -webkit-mask: url('/icons/general/brand-meta.svg') no-repeat center;
+  mask: url('/icons/general/brand-meta.svg') no-repeat center;
+}
+.icon_world {
+  -webkit-mask: url('/icons/general/world.svg') no-repeat center;
+  mask: url('/icons/general/world.svg') no-repeat center;
+}
+
+.linkIcon:hover {
+  cursor: pointer;
+  background-color: #000;
+}
+
+.followWrap {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.followWrap div {
+  margin-right: 20px;
+}
+
+.followNum {
+  color: var(--font-light);
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.introduction {
+  color: var(--font-light);
+}
+
+.introduction p {
+  line-height: 1.6rem;
+}
+
+.cellBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  padding-left: 20px;
+}
+
+.cellBox p {
+  color: var(--font-light);
+}
+
+.cellBox:hover {
+  cursor: pointer;
+  background-color: var(--base-white);
+}
+.cellBox:hover p {
+  font-weight: bold;
+}
+
+.cellBox img {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.createBtnWrap button {
+  margin-bottom: 10px;
+}
+
+.openMobileMenu {
+  display: none;
+}
+
+/*  レスポンシブ */
+@media screen and (max-width: 1130px) {
+  .leftColumn {
+    width: 100px;
+  }
+  .myProfWrap {
+    display: none;
+  }
+  .cellBox {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+    padding-left: 0;
+  }
+  .cellBox:hover {
+    background-color: rgb(237, 237, 237);
+  }
+  .cellBox img {
+    margin-right: 0;
+  }
+  .cellBox:hover img {
+    transform: scale(1.1);
+  }
+  .cellBox p {
+    display: none;
+  }
+  .createBtnWrap {
+    justify-content: center;
+    align-items: center;
+  }
+  .createBtnWrap button {
+    font-size: 0px;
+    width: 70px;
+    height: 70px;
+    border-radius: 5px;
+  }
+  .createRecipeBtn:before {
+    font-size: 15px;
+    content: 'レシピを作成';
+  }
+  .createPageBtn:before {
+    font-size: 15px;
+    content: 'ページを作成';
+  }
+}
+
+/*  モバイル */
+@media screen and (max-width: 450px) {
+  .leftColumn {
+    position: fixed;
+    top: 100px;
+    width: 70px;
+    height: 100vh;
+    left: 0;
+    padding-right: 10px;
+    z-index: 3;
+    transition: left 0.2s ease-out;
+  }
+  .leftColumn.hide {
+    left: -60px;
+  }
+
+  .cellBox {
+    display: flex;
+    justify-content: center;
+    border-bottom: none;
+  }
+
+  .createBtnWrap button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .createRecipeBtn:before {
+    font-size: 20px;
+    content: 'R';
+  }
+  .createPageBtn:before {
+    font-size: 20px;
+    content: 'P';
+  }
+  .openMobileMenu {
+    display: flex;
+    position: fixed;
+    background-image: url('/icons/general/menu-2.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+  }
+  .openMobileMenu.hide {
+    background-image: url('/icons/general/minus.svg');
+  }
+}

@@ -1,0 +1,174 @@
+@page {
+  size: A4 portrait;
+  margin: 0mm;
+  /* border: 1px solid gray; */
+}
+
+.container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 210mm;
+  height: 297mm;
+  box-sizing: border-box;
+  padding: 0 20mm;
+}
+
+/* 分割なし */
+.containerOne {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  break-after: always;
+  margin-top: 50px;
+}
+
+/* .containerOne:last-child {
+  break-after: always;
+} */
+
+.container p {
+  margin: 0;
+  margin-bottom: 5px;
+}
+.container label {
+  margin-bottom: 20px;
+}
+
+.no_print {
+  margin-left: auto;
+}
+
+@media print {
+  .no_print {
+    display: none;
+  }
+}
+
+.text {
+  font-size: 0.8rem;
+}
+
+.contentBox {
+  margin-bottom: 30px;
+}
+
+.alertWrap {
+  background: -moz-linear-gradient(45deg, #f6fffc, #00cb84);
+  background: -webkit-linear-gradient(45deg, #dedddd, #00cb84);
+  background: linear-gradient(45deg, #f3f3f3, #fafafa);
+  color: var(--key-red);
+  text-align: center;
+  font-weight: bold;
+  width: 100;
+  padding: 20px 0;
+  margin-bottom: 20px;
+}
+
+.printBtn {
+  margin-top: 20px;
+}
+
+/* 日付とauthor */
+.OneDateAndNameWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  margin-bottom: 5px;
+}
+
+.OneDateAndNameWrap p,
+.OneDate {
+  text-align: right;
+  margin-left: 10px;
+  padding: 0;
+}
+
+/* describeとイメージ */
+.describe {
+  padding: 10px 0 30px;
+}
+
+.materialContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* 4分割 */
+.baseContainerFour {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 210mm;
+  height: 297mm;
+  box-sizing: border-box;
+  /* padding: 0 20mm; */
+}
+.baseContainerFour p {
+  padding: 3px 0;
+  margin: 0;
+}
+.containerFour {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.content4Box {
+  width: 100%;
+  height: 148.5mm;
+  border-bottom: 1px dashed gray;
+  padding: 5px 20px 20px 20px;
+  overflow-y: hidden;
+}
+
+.content4Box:nth-child(odd) {
+  border-right: 1px dashed gray;
+}
+
+.containerWrap {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px;
+}
+
+.content4Box .titleFour {
+  margin-bottom: 15px;
+}
+
+.content4Box .contentBox {
+  margin-bottom: 15px;
+}
+.author {
+  text-align: right;
+}
+
+/* 6分割 */
+
+.containerSix {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.content6Box {
+  width: 100%;
+  height: 99mm;
+
+  border-bottom: 1px dashed gray;
+  padding: 15px 20px 20px 20px;
+  overflow-y: hidden;
+}
+
+.content6Box:nth-child(odd) {
+  border-right: 1px dashed gray;
+}
+
+.content6Box .title6 {
+  margin-bottom: 15px;
+}
+
+.content6Box .contentBox {
+  margin-bottom: 10px;
+}

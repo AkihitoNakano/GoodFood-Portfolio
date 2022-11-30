@@ -1,0 +1,16 @@
+.select {
+  font-weight: bold;
+  color: lightgray;
+}
+
+.select:hover {
+  cursor: pointer;
+  color: var(--font-sub);
+  border-bottom: solid 3px var(--key-red);
+  margin-bottom: -3px;
+  margin-bottom: 10px;
+}
+
+.selectKey {
+  color: var(--font-sub);
+}

@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+
+:root {
+  --base-white: #fcfcfc;
+  --font-main: #2c2323;
+  --font-sub: #585858;
+  --font-light: #808080;
+  /* --gray--40: rgb(203, 203, 203); */
+  --key-red: #ff0000;
+  --sub-green: #00b274;
+  --alert-band: #cbff9f;
+  --button-black: #2c2c2c;
+  --secondary-red: #ff4012;
+  --dark-red: #b12300;
+
+  /* レスポンシブ横幅サイズ */
+  --large-width: 1130px
+  --middle-width: 650px;
+  --mobile-width: 450px;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+    Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
+main::after {
+  content: '';
+  position: fixed;
+  background: url('/images/bg/bg-texture_B.jpg');
+  background-size: 50%;
+  background-color: rgba(255, 255, 255, 0.65);
+  background-blend-mode: lighten;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+/*  設定画面全体 */
+.settings {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  width: 100%;
+  padding: 0 50px;
+  margin-top: 100px;
+}
+
+/* 設定の中央コンテンツ */
+.settingCenterWrap {
+  padding: 0 100px;
+}
+
+/* テキスト関連 */
+.textSpaceReset {
+  padding: 0;
+  margin: 0;
+}
+
+h1 {
+  color: rgb(54, 40, 40);
+}
+
+.describeText {
+  color: var(--font-sub);
+  font-size: 0.8rem;
+}
+
+/* file input */
+input[type='file'] {
+  display: none;
+}
+
+/*  レスポンシブ */
+@media screen and (max-width: 1130px) {
+  .settings {
+    padding: 0 50px 0 0;
+  }
+  .settingCenterWrap {
+    padding: 0 50px;
+  }
+}
+
+/* モバイル */
+@media screen and (max-width: 450px) {
+  main::after {
+    content: none;
+  }
+  .settings {
+    padding-right: 0px;
+  }
+  .settingCenterWrap {
+    padding: 0 15px;
+  }
+}

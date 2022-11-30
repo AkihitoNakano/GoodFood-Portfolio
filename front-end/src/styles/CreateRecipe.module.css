@@ -1,0 +1,143 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 200px;
+}
+
+.container form {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin-top: 50px;
+}
+
+.container label {
+  margin-bottom: 15px;
+}
+
+.textCount {
+  position: absolute;
+  right: 0;
+}
+
+.imagePreviewWrap {
+  position: relative;
+}
+
+.imagePreview {
+  max-width: 600px;
+  max-height: 800px;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+.closeRow {
+  background-color: var(--font-main);
+  width: 20px;
+  height: 20px;
+  mask: url('/icons/general/x.svg') no-repeat center center / contain;
+  -webkit-mask: url('/icons/general/x.svg') no-repeat center center/contain;
+}
+
+.imgClose {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: 1px solid var(--font-main);
+  border-radius: 50%;
+}
+
+.imgClose:hover {
+  cursor: pointer;
+  background-color: #000;
+  transform: scale(1.1);
+}
+
+.cookTimeWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+.cookTimeWrap input {
+  margin-right: 10px;
+}
+
+/* 材料 */
+.materialHeadWrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.materialHeadWrap p {
+  margin-right: 30%;
+}
+
+.materialContainer button {
+  width: 200px;
+}
+
+.materialRowWrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.materialRowWrap input {
+  width: 250px;
+}
+
+.materialRowWrap input:first-of-type {
+  margin-right: 30px;
+}
+
+.cancelMaterial {
+  margin-left: 20px;
+}
+
+.cancelMaterial:hover {
+  cursor: pointer;
+  background-color: #000;
+  transform: scale(1.1);
+}
+
+/* step */
+.stepBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepRowWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.stepContainer button {
+  width: 200px;
+  margin-top: 30px;
+}
+
+/* モバイル */
+@media screen and (max-width: 450px) {
+  .container form {
+    width: 100%;
+  }
+  .imagePreview {
+    max-width: 100%;
+  }
+  .materialHeadWrap p {
+    margin-right: 10px;
+  }
+  .materialRowWrap {
+    width: 100%;
+  }
+
+  .materialRowWrap input {
+    width: 100px;
+  }
+}
