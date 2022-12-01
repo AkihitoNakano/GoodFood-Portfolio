@@ -52,6 +52,12 @@
 
 👉 [https://good-food-one.vercel.app/](https://good-food-one.vercel.app/)
 
+```text
+ サンプルのアカウントでご使用頂けます。
+ email: mario@google.com
+ pass: sample123
+```
+
 Good Food はレシピを投稿しお気に入りのレシピを保存、クリエイターをフォローすることができるアプリケーションです。
 企画の項目で詳しく述べますがレシピの内容を印刷して使うことを目的として開発したので印刷に特化したレイアウトで出力できます。
 
