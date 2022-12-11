@@ -370,11 +370,12 @@ erDiagram
 
 User ||--||  Profile : is
 User }o--o{ Follow : follow
-User ||--o{ Recipe : create
+User ||--o{ Recipe : have
 Recipe }o--o{ Comment : contain
 Fav }o--o{ Recipe : contain
 Tag }o--|| Recipe : contain
-Page ||--|{ Recipe : use
+Page }o--|| User : have
+Page ||--|{ Recipe : contain
 State ||--o{ User : manage
 
 User {
