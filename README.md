@@ -361,6 +361,11 @@ page --> printPage(print page)
 前回同様データベースには MongoDB を使用しております。
 MongoDB は前回の経験を活かせるということ、Aggregation パイプラインを使用した処理を学びたいという理由から選びました。
 
+リレーショナル DB の ER 図と違い正規化の過程で 1 対 1 があります。
+これは私の当時の知識不足が招いた結果でもありますが、
+例えば User と Profile は 1 対 1 の関係となっています、しかしあえて分離した理由は User にはアカウント情報、特に重要な情報を含んでいるコレクション（テーブル）であるためセキュリティと検索性の観点からプロフィール情報を引き出す際に無駄にアカウント情報を呼び出したくない、User 情報を使用する機会がログインなどの一定の限られた場面のみであるため使用を制限したいという理由からです。
+また 多対多の関係はありませんがその代わり User - Follow、Recipe - Fav, Recipe - Comment の関係で後者側に複数の前者の情報が含まれる状態となってしまいました。RDB の正規化では多対多の関係を解消するために間に関連実体を作ると考えますが、今回の場合作っていません。それは各コレクションの役割やわかりづらくなるというのと mongoDB では子側に親の Ref キーを加えて結合では lookup で参照できるため作らなくても特に問題が無かったという理由からです。
+
 開発の初期段階ではローカルマシン上の MongoDB を使用し、開発後期ではホスティングサービスである MongoDB Atlas に切り替えて開発を行いました。
 
 ### ER 図
@@ -369,10 +374,10 @@ MongoDB は前回の経験を活かせるということ、Aggregation パイプ
 erDiagram
 
 User ||--||  Profile : is
-User }o--o{ Follow : follow
+User ||--o{ Follow : follow
 User ||--o{ Recipe : have
-Recipe }o--o{ Comment : contain
-Fav }o--o{ Recipe : contain
+Recipe ||--o{ Comment : contain
+Fav }o--|| Recipe : contain
 Tag }o--|| Recipe : contain
 Page }o--|| User : have
 Page ||--|{ Recipe : contain
